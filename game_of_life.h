@@ -15,7 +15,7 @@ typedef struct {
 } Grid;
 
 bool init_grid(Grid *g, int width, int height);
-void free_grid(Grid *g);
+void free_grid(const Grid *g);
 void update_grid(Grid *g);
 void toggle_cell(Grid *g, int x, int y);
 

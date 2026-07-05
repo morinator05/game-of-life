@@ -6,7 +6,8 @@
 
 #include <stdlib.h>
 
-bool init_grid(Grid *g, int width, int height)
+//Initializes the datastructures and variables
+bool init_grid(Grid *g, const int width, const int height)
 {
     g->width = width;
     g->height = height;
@@ -15,16 +16,20 @@ bool init_grid(Grid *g, int width, int height)
     return g->current_grid && g->next_grid;
 }
 
-void free_grid(Grid *g)
+//Frees the datastructures
+void free_grid(const Grid *g)
 {
-
+    free(g->current_grid);
+    free(g->next_grid);
 }
 
+//Update the Grid according to the Rules
 void update_grid(Grid *g)
 {
 
 }
 
+//Toggle one cell in the current Grid (e.g. so you can place new cells)
 void toggle_cell(Grid *g, int x, int y)
 {
 
