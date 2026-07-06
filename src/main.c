@@ -10,8 +10,8 @@
 
 int main(void)
 {
-    const int window_width = 808;
-    const int window_height = 600;
+    const int window_width = 1280;
+    const int window_height = 920;
     const int cell_size = 10;
 
     //Calculate the amount of Cells which can fit into the window
@@ -23,13 +23,14 @@ int main(void)
     init_gui(window_width, window_height, cell_size);
 
     bool paused = true;
+    bool fancy_graphics = false;
     float update_timer = 0.0f;
-    float update_rate = 0.15f;
+    float update_rate = 0.05f;
 
     //Main game loop
     while (!WindowShouldClose())
     {
-        handle_gui_input(&world, cell_size, &paused);
+        handle_gui_input(&world, cell_size, &paused, &fancy_graphics);
 
         if (!paused)
         {
@@ -41,7 +42,7 @@ int main(void)
             }
         }
 
-        draw_gui(&world, cell_size, paused);
+        draw_gui(&world, cell_size, paused, fancy_graphics);
     }
 
     free_grid(&world);

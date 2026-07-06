@@ -15,12 +15,12 @@ void init_gui(int screen_width, int screen_height, int cell_size)
 }
 
 //Handle user input and update the grid accordingly
-void handle_gui_input(Grid* g, int cell_size, bool* paused)
+void handle_gui_input(Grid* g, int cell_size, bool* paused, bool* fancy_graphics)
 {
     if (IsKeyPressed(KEY_SPACE))
     {
         *paused = !*paused;
-        if (*paused) SetWindowTitle("Paused, press 'SPACE' to continue, press 'R' to reset!");
+        if (*paused) SetWindowTitle("Paused, press 'SPACE' to continue, press 'R' to reset, press 'G' to toggle fancy graphics!");
         else SetWindowTitle("Running, press SPACE to pause!");
     }
 
@@ -35,10 +35,15 @@ void handle_gui_input(Grid* g, int cell_size, bool* paused)
     {
         reset_grid(g);
     }
+
+    if (*paused & IsKeyPressed(KEY_G))
+    {
+        *fancy_graphics = !*fancy_graphics;
+    }
 }
 
 //Draw the current state of the grid to the window
-void draw_gui(const Grid* g, int cell_size, bool paused)
+void draw_gui(const Grid* g, int cell_size, bool paused, bool fancy_graphics)
 {
     BeginDrawing();
     ClearBackground(BLACK);
@@ -46,6 +51,16 @@ void draw_gui(const Grid* g, int cell_size, bool paused)
     int total_cells = g->width * g->height;
     for (int cell_idx = 0; cell_idx < total_cells; cell_idx++)
     {
+        if (fancy_graphics)
+        {
+            if (g->next_grid[cell_idx])
+            {
+                int x = cell_idx % g->width;
+                int y = cell_idx / g->width;
+                DrawRectangle(x * cell_size, y * cell_size, cell_size, cell_size, DARKGRAY);
+            }
+        }
+
         if (g->current_grid[cell_idx])
         {
             int x = cell_idx % g->width;
