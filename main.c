@@ -22,7 +22,7 @@ int main(void)
 
     bool paused = true;
     float update_timer = 0.0f;
-    float update_rate = 0.25f;
+    float update_rate = 0.15f;
 
     //Main game loop
     while (!WindowShouldClose())
