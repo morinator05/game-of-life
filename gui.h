@@ -8,7 +8,7 @@
 #include "game_of_life.h"
 
 void init_gui(int screen_width, int screen_height, int cell_size);
-void handle_gui_input(Grid *g, bool *paused);
+void handle_gui_input(Grid *g, int cell_size, bool *paused);
 void draw_gui(const Grid *g, int cell_size, bool paused);
 void close_gui(void);
 

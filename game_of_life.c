@@ -32,5 +32,6 @@ void update_grid(Grid *g)
 //Toggle one cell in the current Grid (e.g. so you can place new cells)
 void toggle_cell(Grid *g, int x, int y)
 {
-
+    int idx = y * g->width + x;
+    g->current_grid[idx] = !g->current_grid[idx];
 }

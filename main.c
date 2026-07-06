@@ -11,7 +11,7 @@ int main(void)
 {
     const int window_width = 800;
     const int window_height = 600;
-    const int cell_size = 20;
+    const int cell_size = 50;
 
     //Calculate the amount of Cells which can fit into the window
     const int grid_width = window_width / cell_size;
@@ -28,14 +28,13 @@ int main(void)
     //Main game loop
     while (!WindowShouldClose())
     {
-        handle_gui_input(&map, &paused);
+        handle_gui_input(&map, cell_size, &paused);
 
         if (!paused)
         {
             update_timer += GetFrameTime();
             if (update_timer >= update_rate)
             {
-                printf("updating!\n");
                 update_grid(&map);
                 update_timer = 0.0f;
 
