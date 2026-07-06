@@ -1,5 +1,3 @@
 Hey, I was bored...
 
-<p align="center">
-  <img src="img/screenshot_01.png" width="500">
-</p>
+![Alt text](/img/screenshot_01.png?raw=true "Screenshot")
