@@ -3,8 +3,6 @@
 //
 
 #include <raylib.h>
-#include "stdlib.h"
-#include "stdio.h"
 
 #include "game_of_life.h"
 

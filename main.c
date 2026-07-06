@@ -5,7 +5,6 @@
 #include "game_of_life.h"
 #include "gui.h"
 #include "raylib.h"
-#include "stdio.h"
 
 int main(void)
 {
