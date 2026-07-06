@@ -2,6 +2,8 @@
 // Created by mori on 7/6/26.
 //
 
+#include <stdlib.h>
+
 #include "game_of_life.h"
 #include "gui.h"
 #include "raylib.h"
@@ -41,4 +43,7 @@ int main(void)
 
         draw_gui(&world, cell_size, paused);
     }
+
+    free_grid(&world);
+    return(EXIT_SUCCESS);
 }
