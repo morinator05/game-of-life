@@ -9,7 +9,8 @@
 //Initialze the window
 void init_gui(int screen_width, int screen_height, int cell_size)
 {
-    InitWindow(screen_width, screen_height, "game-of-life");
+    InitWindow(screen_width, screen_height,
+               "Welcome Conways Game Of Life - Place some cells and hit 'SPACE' to start!");
     SetTargetFPS(60);
 }
 
@@ -19,7 +20,7 @@ void handle_gui_input(Grid* g, int cell_size, bool* paused)
     if (IsKeyPressed(KEY_SPACE))
     {
         *paused = !*paused;
-        if (*paused) SetWindowTitle("Paused, press SPACE to continue!");
+        if (*paused) SetWindowTitle("Paused, press 'SPACE' to continue, press 'R' to reset!");
         else SetWindowTitle("Running, press SPACE to pause!");
     }
 
@@ -28,6 +29,11 @@ void handle_gui_input(Grid* g, int cell_size, bool* paused)
         int x = GetMouseX() / cell_size;
         int y = GetMouseY() / cell_size;
         toggle_cell(g, x, y);
+    }
+
+    if (*paused & IsKeyPressed(KEY_R))
+    {
+        reset_grid(g);
     }
 }
 
