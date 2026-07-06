@@ -17,8 +17,8 @@ int main(void)
     const int grid_width = window_width / cell_size;
     const int grid_height = window_height / cell_size;
 
-    Grid map;
-    init_grid(&map, grid_width, grid_height);
+    Grid world;
+    init_grid(&world, grid_width, grid_height);
     init_gui(window_width, window_height, cell_size);
 
     bool paused = false;
@@ -28,20 +28,20 @@ int main(void)
     //Main game loop
     while (!WindowShouldClose())
     {
-        handle_gui_input(&map, cell_size, &paused);
+        handle_gui_input(&world, cell_size, &paused);
 
         if (!paused)
         {
             update_timer += GetFrameTime();
             if (update_timer >= update_rate)
             {
-                update_grid(&map);
+                update_grid(&world);
                 update_timer = 0.0f;
 
             }
         }
 
-        draw_gui(&map, cell_size, paused);
+        draw_gui(&world, cell_size, paused);
     }
 
 }
