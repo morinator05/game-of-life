@@ -1,3 +1,5 @@
 Hey, I was bored...
 
-![Main View](img/screenshot_01.png)
+<p align="center">
+  <img src="img/screenshot_01.png" width="500">
+</p>
