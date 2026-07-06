@@ -25,7 +25,7 @@ int main(void)
     bool paused = true;
     bool fancy_graphics = false;
     float update_timer = 0.0f;
-    float update_rate = 0.05f;
+    float update_rate = 0.025f;
 
     //Main game loop
     while (!WindowShouldClose())
@@ -46,5 +46,6 @@ int main(void)
     }
 
     free_grid(&world);
+    close_gui();
     return(EXIT_SUCCESS);
 }
